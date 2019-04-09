@@ -10,7 +10,7 @@
 <header>
 
 </header>
-fjhf
+
 <div class="banner">
 
 </div>
