@@ -18,6 +18,6 @@ $db = new PDO($dsn, $dbUser, $dbPassword);
 $db->setAttribute(PDO:: ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
 
 
-if($db){
-   echo "Connected to the $dbName database successfully!";
-}
+//if($db){
+//   echo "Connected to the $dbName database successfully!";
+//}
