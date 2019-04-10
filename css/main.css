@@ -97,7 +97,17 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+header{
+    display: flex;
+    justify-content: space-around;
+    background-color: red;
+    padding: 20px;
+    align-items: center;
+}
 
+header input{
+    margin: 5px;
+}
 
 
 
