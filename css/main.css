@@ -109,6 +109,24 @@ header input{
     margin: 5px;
 }
 
+.banner{
+    background-image: url("../img/voetbalveld.jpg");
+    height: 580px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+.banner h2{
+    color: white;
+}
+
+
+
 
 
 
