@@ -16,6 +16,14 @@ $prepare->execute([
 $team = $prepare->fetch(PDO::FETCH_ASSOC);
 $team_name = $team['team_name'];
 
+$sql2 = "SELECT * FROM players WHERE team_name=:team_name";
+$prepare2 = $db->prepare($sql2);
+$prepare2->execute([
+    ':team_name' => $team_name
+]);
+
+$players = $prepare2->fetchAll(PDO::FETCH_ASSOC);
+
 require 'header.php';
 
 ?>
@@ -26,7 +34,22 @@ require 'header.php';
 </header>
 
 <?php
-
 echo "<h2>$team_name</h2>"
 ?>
+
+<div class="players">
+
+    <?php
+    echo '<ul>';
+    foreach ($players as $player){
+        $player_name =  htmlentities($player['player_name']);
+        echo "<li>{$player_name}</li>";
+    }
+    ?>
+
+    <form action="add_player.php?id=<?=$id;?>" method="post">
+        <input type="text" id="player_name" name="player_name" required placeholder="Speler naam">
+        <input type="submit" VALUE="Voeg speler toe">
+    </form>
+</div>
 
