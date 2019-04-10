@@ -1,6 +1,5 @@
 <?php
 
-
 require 'config.php';
 
 $sql = "SELECT * FROM teams";
@@ -9,7 +8,6 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
 require 'header.php';
 ?>
-
 
 <header>
     <h1>Name_here</h1>
@@ -28,6 +26,7 @@ require 'header.php';
 </div>
 
 <div class="teams">
+    <h3>Teams</h3>
     <?php
         echo '<ul>';
         foreach ($teams as $team){
@@ -36,11 +35,10 @@ require 'header.php';
         }
     ?>
 
-    <form action="add_team.php" method="post">
+    <form action="add_team.php" method="post" id="teams">
         <input type="text" name="team_name" id="team_name" placeholder="Team naam" required>
         <input type="submit" value="Maak aan">
     </form>
 </div>
-
 
 <?php require 'footer.php'; ?>
