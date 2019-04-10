@@ -1,10 +1,7 @@
-
-
-
-
-
-
-<?php require 'header.php'; ?>
+<?php
+require 'config.php';
+require 'header.php';
+?>
 
 
 <header>
