@@ -105,8 +105,20 @@ header{
     align-items: center;
 }
 
+header h1{
+    color: white;
+}
+
 header input{
     margin: 5px;
+}
+
+header a{
+    text-decoration: none;
+    color: white;
+    border-style: solid;
+    padding: 10px;
+    border-radius: 30px;
 }
 
 .banner{
@@ -114,7 +126,7 @@ header input{
     height: 580px;
     background-repeat: no-repeat;
     margin: 0 auto;
-    width: 1000px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,7 +135,9 @@ header input{
 
 .banner h2{
     color: white;
+    font-size: 3em;
 }
+
 
 
 
