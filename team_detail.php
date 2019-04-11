@@ -63,8 +63,18 @@ echo "<h2>$team_name</h2>"
 <?php
 echo"
 <div class='remove'>
-    <a href='remove_team.php?id=$id'>Verwijder het team</a>
-</div>
-";
+<button onclick='myFunction()'>Verwijder team</button> 
+ ";
 ?>
+
+ <script>
+function myFunction() {
+   var txt;
+  var r = confirm('Als je een team verwijderd dan verwijder je het permanent en alle spelers die er nu inzitten');
+   if(r == true){
+       window.location.href = 'remove_team.php';
+   }
+}
+</script>
+</div>
 
