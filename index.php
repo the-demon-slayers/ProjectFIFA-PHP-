@@ -18,7 +18,9 @@ require 'header.php';
             <input type="password" id="password" name="password" placeholder="Wachtwoord" required>
             <input type="submit" value="Login">
         </form>
+
     </div>
+    <a href="register_form.php">Registreer een profiel</a>
 </header>
 
 <div class="banner">
