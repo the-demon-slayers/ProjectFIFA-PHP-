@@ -25,7 +25,7 @@ require 'header.php';
     </div>
     ";
     }else{
-        echo "<a href='logout.php'>Uitloggen voor".$_SESSION['username']."</a>";
+        echo "<a href='logout.php'>Uitloggen voor ".$_SESSION['username']."</a>";
 
         if ($_SESSION['username'] == 'ikbenrobin5') {
 

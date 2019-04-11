@@ -41,11 +41,14 @@ echo "<h2>$team_name</h2>"
 
 <div class="players">
 
+
     <?php
     echo '<ul>';
     foreach ($players as $player){
         $player_name =  htmlentities($player['player_name']);
-        echo "<li>{$player_name}</li>";
+        $player_id = htmlentities($player['id']);
+
+        echo "<a onclick='remove_player()' href='remove_player.php?id=$player_id'>{$player_name}</a>";
     }
     ?>
 
@@ -63,18 +66,27 @@ echo "<h2>$team_name</h2>"
 <?php
 echo"
 <div class='remove'>
-<button onclick='myFunction()'>Verwijder team</button> 
+<button onclick='remove_team()'>Verwijder team</button> 
  ";
 ?>
 
  <script>
-function myFunction() {
-   var txt;
-  var r = confirm('Als je een team verwijderd dan verwijder je het permanent en alle spelers die er nu inzitten');
-   if(r == true){
-       window.location.href = 'remove_team.php';
-   }
+function remove_team() {
+      var txt;
+      var r = confirm('Als je een team verwijderd dan verwijder je het permanent en alle spelers die er nu inzitten!');
+       if(r == true){
+           window.location.href = 'remove_team.php?id=<?=$id;?>';
+       }
+}
+
+function remove_player() {
+    var txt;
+    var r = confirm('Weet je zeker dat je deze speler wil verwijderen?');
+    if(r == true){
+        window.location.href = 'remove_player.php?id=<?=$player_id?>';
+    }
 }
 </script>
 </div>
+
 
