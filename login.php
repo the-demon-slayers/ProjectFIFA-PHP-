@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     exit;
 }
 
+session_start();
+
 require 'config.php';
 
 $username = $_POST['username'];
@@ -26,9 +28,11 @@ $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
 if ($result){
     $hashed_password = $result[0]['password'];
     if (password_verify($password, $hashed_password)) {
-        $_SESSION['user'] = $username;
+        $_SESSION['username'] = $username;
         header('Location: index.php');
         exit();
     }
 }
+
+header('Location: index.php');
 

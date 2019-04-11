@@ -24,6 +24,8 @@ $prepare2->execute([
 
 $players = $prepare2->fetchAll(PDO::FETCH_ASSOC);
 
+session_start();
+
 require 'header.php';
 
 ?>
@@ -47,9 +49,15 @@ echo "<h2>$team_name</h2>"
     }
     ?>
 
-    <form action="add_player.php?id=<?=$id;?>" method="post">
-        <input type="text" id="player_name" name="player_name" required placeholder="Speler naam">
-        <input type="submit" VALUE="Voeg speler toe">
-    </form>
+    <?php
+    if (isset($_SESSION['username'])){
+
+        echo"<form action='add_player.php?id=$id' method= 'post'>
+        <input type='text' id='player_name' name='player_name' required placeholder='Speler naam'>
+        <input type='submit' VALUE='Voeg speler toe'>
+    </form>";
+    }
+    ?>
+
 </div>
 

@@ -1,6 +1,6 @@
 <?php
-
 require 'config.php';
+session_start();
 
 $sql = "SELECT * FROM teams";
 $query = $db->query($sql);
@@ -12,15 +12,28 @@ require 'header.php';
 <header>
     <h1>Name_here</h1>
 
-    <div class="login">
-        <form action="login.php" method="post">
-            <input type="text" id="username" name="username" placeholder="Gebruikersnaam" required>
-            <input type="password" id="password" name="password" placeholder="Wachtwoord" required>
-            <input type="submit" value="Login">
+    <?php
+    if (!isset($_SESSION['username'])){
+        echo"
+        <div class='login''>
+        <form action='login.php' method='post'>
+            <input type='text' id='username' name='username' placeholder='Gebruikersnaam' required>
+            <input type='password' id='password' name='password' placeholder='Wachtwoord' required>
+            <input type='submit' value='Login'>
         </form>
 
     </div>
-    <a href="register_form.php">Registreer een profiel</a>
+    ";
+    }else{
+        echo "<a href='logout.php'>Uitloggen voor".$_SESSION['username']."</a>";
+
+        if ($_SESSION['username'] == 'ikbenrobin5') {
+
+            echo "<a href='register_form.php'>Registreer een profiel</a>";
+        }
+    }
+    ?>
+
 </header>
 
 <div class="banner">
@@ -37,10 +50,17 @@ require 'header.php';
         }
     ?>
 
-    <form action="add_team.php" method="post" id="teams">
-        <input type="text" name="team_name" id="team_name" placeholder="Team naam" required>
-        <input type="submit" value="Maak aan">
+    <?php
+    if (isset($_SESSION['username'])){
+        echo"
+        <form action='add_team.php' method='post' id='teams'>
+        <input type='text' name='team_name' id='team_name' placeholder='Team naam' required>
+        <input type='submit' value='Maak aan'>
     </form>
+    ";
+    }
+    ?>
+
 </div>
 
 <?php require 'footer.php'; ?>
