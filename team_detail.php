@@ -58,6 +58,13 @@ echo "<h2>$team_name</h2>"
     </form>";
     }
     ?>
-
 </div>
+
+<?php
+echo"
+<div class='remove'>
+    <a href='remove_team.php?id=$id'>Verwijder het team</a>
+</div>
+";
+?>
 
