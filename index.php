@@ -35,7 +35,7 @@ require 'header.php';
 </header>
 
 <div class="banner">
-    <h2>Voetbal wedstrijden voor jou bedrijf</h2>
+    <h2>Voetbal wedstrijden voor jouw bedrijf</h2>
 </div>
 
 <div class="teams">
