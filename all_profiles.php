@@ -26,7 +26,11 @@ require 'header.php';
 echo'<ul>';
 foreach ($users as $user){
     $username = htmlentities($user['username']);
-    echo"<li><a href='give_rights.php?id={$user['id']}'>$username</a>";
+    if ($user['rights'] == 1){
+        echo"<li><a href='give_rights.php?id={$user['id']}'>$username heeft rechten</a>";
+    }else{
+        echo"<li><a href='give_rights.php?id={$user['id']}'>$username heeft geen rechten</a>";
+    }
 }
 ?>
 
