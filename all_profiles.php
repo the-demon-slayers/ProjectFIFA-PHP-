@@ -26,7 +26,7 @@ require 'header.php';
 echo'<ul>';
 foreach ($users as $user){
     $username = htmlentities($user['username']);
-    echo"<li><a href=''>$username</a>";
+    echo"<li><a href='give_rights.php?id={$user['id']}'>$username</a>";
 }
 ?>
 
