@@ -9,9 +9,7 @@
 
 require 'config.php';
 
-
 $id = $_GET['id'];
-
 
 $sql = "SELECT * FROM players WHERE id=:id";
 $prepare = $db->prepare($sql);
@@ -19,11 +17,9 @@ $prepare->execute([
     ':id' => $id
 ]);
 
-$players = $prepare->fetchAll(PDO::FETCH_ASSOC);
+$player = $prepare->fetch(PDO::FETCH_ASSOC);
+$team_name = $player['team_name'];
 
-foreach ($players as $player){
-    $player_id = htmlentities($player['id']);
-}
 
 $sql = "DELETE FROM players WHERE id=:id";
 $prepare= $db->prepare($sql);
@@ -31,4 +27,13 @@ $prepare->execute([
     ':id' => $id
 ]);
 
-header("Location: team_detail.php?id=$id");
+$sql = "SELECT * FROM teams WHERE team_name=:team_name ";
+$prepare = $db->prepare($sql);
+$prepare->execute([
+    ':team_name' => $team_name
+]);
+
+$result = $prepare->fetch(PDO::FETCH_ASSOC);
+$team_id = $result['id'];
+
+header("Location: team_detail.php?id=$team_id");
