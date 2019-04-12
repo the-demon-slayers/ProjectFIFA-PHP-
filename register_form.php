@@ -13,6 +13,7 @@ require 'header.php';
 
 
 <header>
+    <h1>FIFA</h1>
     <a href="index.php">Home</a>
 </header>
 

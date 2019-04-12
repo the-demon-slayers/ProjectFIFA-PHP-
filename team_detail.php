@@ -31,7 +31,7 @@ require 'header.php';
 ?>
 
 <header>
-    <h1>Name_here</h1>
+    <h1>FIFA</h1>
     <a href="index.php">Home</a>
 </header>
 
@@ -48,12 +48,13 @@ echo "<h2>$team_name</h2>"
         $player_name =  htmlentities($player['player_name']);
         $player_id = htmlentities($player['id']);
 
-        echo "<a onclick='remove_player()' href='remove_player.php?id=$player_id'>{$player_name}</a>";
+        echo"<button onclick='remove_player()'>{$player_name}</button>";
+
     }
     ?>
 
     <?php
-    if (isset($_SESSION['username'])){
+    if (isset($_SESSION['username']) && $_SESSION['rights'] == 1){
 
         echo"<form action='add_player.php?id=$id' method= 'post'>
         <input type='text' id='player_name' name='player_name' required placeholder='Speler naam'>
@@ -64,11 +65,14 @@ echo "<h2>$team_name</h2>"
 </div>
 
 <?php
+if (isset($_SESSION['username']) && $_SESSION['rights'] == 1)
 echo"
 <div class='remove'>
-<button onclick='remove_team()'>Verwijder team</button> 
+    <button onclick='remove_team()'>Verwijder team</button> 
+</div>
  ";
 ?>
+
 
  <script>
 function remove_team() {
@@ -87,6 +91,6 @@ function remove_player() {
     }
 }
 </script>
-</div>
+
 
 

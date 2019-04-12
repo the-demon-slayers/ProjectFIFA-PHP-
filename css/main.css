@@ -100,13 +100,13 @@ textarea {
 header{
     display: flex;
     justify-content: space-around;
-    background-color: red;
+    background-color: #6393b6;
     padding: 20px;
     align-items: center;
 }
 
 header h1{
-    color: white;
+    color: black;
 }
 
 header input{
@@ -115,7 +115,7 @@ header input{
 
 header a{
     text-decoration: none;
-    color: white;
+    color: black;
     border-style: solid;
     padding: 10px;
     border-radius: 30px;

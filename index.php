@@ -10,7 +10,7 @@ require 'header.php';
 ?>
 
 <header>
-    <h1>Name_here</h1>
+    <h1>FIFA</h1>
     <?php
     if (!isset($_SESSION['username'])){
         echo"
@@ -49,7 +49,7 @@ require 'header.php';
     ?>
 
     <?php
-    if (isset($_SESSION['username'])){
+    if (isset($_SESSION['username']) && $_SESSION['rights'] == 1){
         echo"
         <form action='add_team.php' method='post' id='teams'>
         <input type='text' name='team_name' id='team_name' placeholder='Team naam' required>

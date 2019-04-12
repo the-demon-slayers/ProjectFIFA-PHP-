@@ -6,7 +6,9 @@
  * Time: 12:20
  */
 
+
 require 'config.php';
+
 
 $id = $_GET['id'];
 
