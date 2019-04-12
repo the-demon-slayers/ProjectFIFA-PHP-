@@ -40,16 +40,13 @@ echo "<h2>$team_name</h2>"
 
 <div class="players">
 
-
     <?php
     if (isset($_SESSION['username']) && $_SESSION['rights'] == 1){
         echo '<ul>';
         foreach ($players as $player){
             $player_name =  htmlentities($player['player_name']);
             $player_id = htmlentities($player['id']);
-
             echo"<button onclick='remove_player()'>{$player_name}</button>";
-
         }
     }else{
         foreach ($players as $player){
@@ -58,7 +55,6 @@ echo "<h2>$team_name</h2>"
             echo "<button class='noRightsBtn'>$player_name</button>";
         }
     }
-
     ?>
 
     <?php
@@ -91,7 +87,6 @@ echo"
             alert('Je hebt niet voldoende rechten om deze speler te verwijderen!');
         })
     })
-
 
 function remove_team() {
       var txt;
