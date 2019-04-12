@@ -11,18 +11,17 @@ require 'config.php';
 $id = $_GET['id'];
 
 
-$query = "SELECT * FROM players WHERE id=:id";
-$prepare1 = $db->($query);
-$prepare1->execute([
+$sql = "SELECT * FROM players WHERE id=:id";
+$prepare = $db->prepare($sql);
+$prepare->execute([
     ':id' => $id
 ]);
 
-$players = $prepare1->fetchAll(PDO::FETCH_ASSOC);
+$players = $prepare->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($players as $player){
     $player_id = htmlentities($player['id']);
 }
-
 
 $sql = "DELETE FROM players WHERE id=:id";
 $prepare= $db->prepare($sql);
