@@ -5,7 +5,6 @@
  * Date: 10-4-2019
  * Time: 14:14
  */
-
 require 'config.php';
 $id = $_GET['id'];
 $sql = "SELECT * FROM teams WHERE id = :id";
@@ -43,14 +42,23 @@ echo "<h2>$team_name</h2>"
 
 
     <?php
-    echo '<ul>';
-    foreach ($players as $player){
-        $player_name =  htmlentities($player['player_name']);
-        $player_id = htmlentities($player['id']);
+    if (isset($_SESSION['username']) && $_SESSION['rights'] == 1){
+        echo '<ul>';
+        foreach ($players as $player){
+            $player_name =  htmlentities($player['player_name']);
+            $player_id = htmlentities($player['id']);
 
-        echo"<button onclick='remove_player()'>{$player_name}</button>";
+            echo"<button onclick='remove_player()'>{$player_name}</button>";
 
+        }
+    }else{
+        foreach ($players as $player){
+            $player_name = htmlentities($player['player_name']);
+            $player_id = htmlentities($player['id']);
+            echo "<button class='noRightsBtn'>$player_name</button>";
+        }
     }
+
     ?>
 
     <?php
@@ -73,10 +81,21 @@ echo"
  ";
 ?>
 
+<script>
 
- <script>
+    var buttons = document.querySelectorAll('.noRightsBtn');
+    console.log(buttons);
+
+    buttons.forEach( function(button) {
+        button.addEventListener('click', function() {
+            alert('Je hebt niet voldoende rechten om deze speler te verwijderen!');
+        })
+    })
+
+
 function remove_team() {
       var txt;
+
       var r = confirm('Als je een team verwijderd dan verwijder je het permanent en alle spelers die er nu inzitten!');
        if(r == true){
            window.location.href = 'remove_team.php?id=<?=$id;?>';
@@ -90,6 +109,7 @@ function remove_player() {
         window.location.href = 'remove_player.php?id=<?=$player_id?>';
     }
 }
+
 </script>
 
 
