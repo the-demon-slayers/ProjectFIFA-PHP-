@@ -49,7 +49,6 @@ echo " <p>Aangemaakt door: $made_by</p>";
         foreach ($players as $player){
             $player_name =  htmlentities($player['player_name']);
             $player_id = htmlentities($player['id']);
-            var_dump($player_id);
             echo"<button onclick='remove_player()'>{$player_name}</button>";
         }
     }else{
