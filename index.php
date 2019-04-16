@@ -27,7 +27,7 @@ require 'header.php';
         echo "<a href='logout.php'>Uitloggen voor ".$_SESSION['username']."</a>";
 
         if ($_SESSION['username'] == 'ikbenrobin5') {
-            echo "<a href='all_profiles.php'>Alle profielen</a>";
+            //echo "<a href='all_profiles.php'>Alle profielen</a>";
         }
     }
     ?>
