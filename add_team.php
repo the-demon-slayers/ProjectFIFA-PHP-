@@ -24,5 +24,4 @@ $prepare->execute([
     ':made_by' => $made_by
 ]);
 
-
 header('Location: index.php');
