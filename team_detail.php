@@ -24,6 +24,7 @@ $prepare2->execute([
 
 $players = $prepare2->fetchAll(PDO::FETCH_ASSOC);
 $player_id = '0';
+$admin = 'ikbenrobin5';
 
 session_start();
 require 'header.php';
@@ -36,13 +37,14 @@ require 'header.php';
 </header>
 
 <?php
-echo "<h2>$team_name</h2>"
+echo "<h2>$team_name</h2>";
+echo " <p>Aangemaakt door: $made_by</p>";
 ?>
 
 <div class="players">
 
     <?php
-    if (isset($_SESSION['username']) && $_SESSION['rights'] == 1){
+    if (isset($_SESSION['username']) == $made_by){
         echo '<ul>';
         foreach ($players as $player){
             $player_name =  htmlentities($player['player_name']);
@@ -57,24 +59,28 @@ echo "<h2>$team_name</h2>"
             echo "<button class='noRightsBtn'>$player_name</button>";
         }
     }
-    ?>
 
-    <?php
-    if (isset($_SESSION['username']) && $_SESSION['rights'] == 1){
-
-        echo"
+    if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by) {
+        echo "
              <form action='add_player.php?id=$id' method= 'post'>
                 <input type='text' id='player_name' name='player_name' required placeholder='Speler naam'>
                 <input type='submit' VALUE='Voeg speler toe'>
              </form>
         ";
-    }
+    }elseif (isset($_SESSION['username']) && $_SESSION['username'] == $admin)
+        echo "
+             <form action='add_player.php?id=$id' method= 'post'>
+                <input type='text' id='player_name' name='player_name' required placeholder='Speler naam'>
+                <input type='submit' VALUE='Voeg speler toe'>
+             </form>
+        ";
     ?>
+
 </div>
 
 
 <?php
-if (isset($_SESSION['username']) && $_SESSION['rights'] == 1) {
+if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by ) {
 
     if (!isset($player_id)) {
         echo "
@@ -91,6 +97,7 @@ if (isset($_SESSION['username']) && $_SESSION['rights'] == 1) {
          ";
     }
 }
+
 ?>
 
 <script>
@@ -106,30 +113,26 @@ if (isset($_SESSION['username']) && $_SESSION['rights'] == 1) {
     })
 
 
-function remove() {
-    var r = confirm('Als je een team verwijderd dan verwijder je het permanent en alle spelers die er nu inzitten!');
-    if(r == true){
-        window.location.href = 'remove_team.php?id=<?=$id;?>';
+    function remove() {
+        var r = confirm('Als je een team verwijderd dan verwijder je het permanent en alle spelers die er nu inzitten!');
+        if(r == true){
+            window.location.href = 'remove_team.php?id=<?=$id;?>';
+        }
     }
-}
 
-function remove_team() {
+    function remove_team() {
 
-       var r = confirm('Als je een team verwijderd dan verwijder je het permanent en alle spelers die er nu inzitten!');
-       if(r == true){
-           window.location.href = 'remove_team.php?id=<?=$id?>';
-       }
-}
-
-function remove_player() {
-    var r = confirm('Weet je zeker dat je deze speler wil verwijderen?');
-    if(r == true){
-        window.location.href = 'remove_player.php?id=<?=$player_id?>';
+        var r = confirm('Als je een team verwijderd dan verwijder je het permanent en alle spelers die er nu inzitten!');
+        if(r == true){
+            window.location.href = 'remove_team.php?id=<?=$id?>';
+        }
     }
-}
+
+    function remove_player() {
+        var r = confirm('Weet je zeker dat je deze speler wil verwijderen?');
+        if(r == true){
+            window.location.href = 'remove_player.php?id=<?=$player_id?>';
+        }
+    }
 
 </script>
-
-
-
-

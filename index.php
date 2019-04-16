@@ -49,7 +49,7 @@ require 'header.php';
     ?>
 
     <?php
-    if (isset($_SESSION['username']) && $_SESSION['rights'] == 1){
+    if (isset($_SESSION['username'])){
         echo"
         <form action='add_team.php' method='post' id='teams'>
         <input type='text' name='team_name' id='team_name' placeholder='Team naam' required>
