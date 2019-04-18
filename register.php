@@ -18,7 +18,8 @@ $password = $_POST['password'];
 $password_repeat = $_POST['password_repeat'];
 
 if ($password != $password_repeat){
-    echo 'Is niet gelijk';
+    echo 'Je hebt niet twee dezelfde wachtwoorden gebruikt.';
+//    header('Location: register_form.php');
     exit();
 }
 
@@ -32,6 +33,7 @@ $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
 
 if ($result){
     echo'Deze gebruikersnaam bestaat al';
+//    header('Location: register_form.php');
     exit();
 }
 
