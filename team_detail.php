@@ -97,6 +97,24 @@ if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by ) {
     }
 }
 
+if (isset($_SESSION['username']) && $_SESSION['username'] == $admin ) {
+
+    if (!isset($player_id)) {
+        echo "
+            <div class='remove'>
+                <button onclick='remove_team()'>Verwijder team</button>
+            </div>
+         ";
+
+    } else {
+        echo "
+            <div class='remove'>
+                <button onclick='remove()'>Verwijder team</button>
+            </div>
+         ";
+    }
+}
+
 ?>
 
 <script>
