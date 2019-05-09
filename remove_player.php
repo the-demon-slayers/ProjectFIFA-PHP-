@@ -20,7 +20,6 @@ $prepare->execute([
 $player = $prepare->fetch(PDO::FETCH_ASSOC);
 $team_name = $player['team_name'];
 
-
 $sql = "DELETE FROM players WHERE id=:id";
 $prepare= $db->prepare($sql);
 $prepare->execute([

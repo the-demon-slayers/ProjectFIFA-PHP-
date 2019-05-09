@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST'){
 
 require 'config.php';
 
-
 $id = $_GET['id'];
 $query = "SELECT * FROM teams WHERE id = :id";
 $prepare1 = $db->prepare($query);

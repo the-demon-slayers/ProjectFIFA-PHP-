@@ -77,7 +77,6 @@ echo " <p>Aangemaakt door: $made_by</p>";
 
 </div>
 
-
 <?php
 if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by ) {
 
