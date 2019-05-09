@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 
 require 'config.php';
 
-$username = $_POST['username'];
+$username = strtolower($_POST['username']);
 $password = $_POST['password'];
 $password_repeat = $_POST['password_repeat'];
 

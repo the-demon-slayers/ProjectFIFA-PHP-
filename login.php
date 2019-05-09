@@ -14,7 +14,7 @@ session_start();
 
 require 'config.php';
 
-$username = $_POST['username'];
+$username = strtolower($_POST['username']);
 $password = $_POST['password'];
 
 $sql = "SELECT * FROM users WHERE username=:username";
