@@ -94,10 +94,8 @@ if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by ) {
             </div>
          ";
     }
-}
-
-if (isset($_SESSION['username']) && $_SESSION['username'] == $admin ) {
-
+}elseif (isset($_SESSION['username']) && $_SESSION['username'] == $admin){
+    
     if (!isset($player_id)) {
         echo "
             <div class='remove'>
