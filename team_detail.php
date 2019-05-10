@@ -44,7 +44,15 @@ echo " <p>Aangemaakt door: $made_by</p>";
 <div class="players">
 
     <?php
-    if (isset($_SESSION['username']) == $made_by){
+    if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by){
+        echo '<ul>';
+        foreach ($players as $player){
+            $player_name =  htmlentities($player['player_name']);
+            $player_id = htmlentities($player['id']);
+            echo"<button onclick='remove_player()'>{$player_name}</button>";
+        }
+    }else if (isset($_SESSION['username']) && $_SESSION['username'] == $admin){
+
         echo '<ul>';
         foreach ($players as $player){
             $player_name =  htmlentities($player['player_name']);
@@ -66,13 +74,14 @@ echo " <p>Aangemaakt door: $made_by</p>";
                 <input type='submit' VALUE='Voeg speler toe'>
              </form>
         ";
-    }elseif (isset($_SESSION['username']) && $_SESSION['username'] == $admin)
+    }elseif (isset($_SESSION['username']) && $_SESSION['username'] == $admin) {
         echo "
              <form action='add_player.php?id=$id' method= 'post'>
                 <input type='text' id='player_name' name='player_name' required placeholder='Speler naam'>
                 <input type='submit' VALUE='Voeg speler toe'>
              </form>
         ";
+    }
     ?>
 
 </div>
