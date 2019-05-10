@@ -11,9 +11,9 @@ require 'config.php';
 
 $sql = "SELECT * FROM players";
 $query = $db->query($sql);
-$teams = $query->fetchAll(PDO::FETCH_ASSOC);
+$players = $query->fetchAll(PDO::FETCH_ASSOC);
 
-$myJSON = json_encode($teams);
+$myJSON = json_encode($players);
 echo $myJSON;
 
 ?>
