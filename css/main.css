@@ -109,6 +109,13 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.logo{
+    width: 70%;
+}
+.vertical-align{
+    line-height: 85px;
+}
+
 header{
     /* display: flex;
     justify-content: space-around; */
@@ -119,10 +126,6 @@ header{
 .fixed-header{
     position: fixed;
     width: 100%;
-}
-
-header h1{
-    color: black;
 }
 
 .header-content{

@@ -13,7 +13,7 @@ require 'header.php';
 <div class="fixed-header">
     <header>
         <div class="header-content">
-            <h1>FIFA</h1>
+            <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>
             <?php
             if (!isset($_SESSION['username'])){
                 echo"
