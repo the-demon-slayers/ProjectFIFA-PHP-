@@ -25,7 +25,7 @@ var_dump($teams);
 
 
 foreach ($teams as $team){
-    $teams
+    
 }
 ?>
 
