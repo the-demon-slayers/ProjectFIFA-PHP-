@@ -9,13 +9,24 @@
 
 require 'config.php';
 
-$sql = "SELECT * FROM players";
+//$sql = "SELECT * FROM players";
+//$query = $db->query($sql);
+//$players = $query->fetchAll(PDO::FETCH_ASSOC);
+//
+//$myJSON = json_encode($players);
+//echo $myJSON;
+
+$sql = "SELECT * FROM teams";
 $query = $db->query($sql);
-$players = $query->fetchAll(PDO::FETCH_ASSOC);
+$teams = $query->fetchAll(PDO::FETCH_ASSOC);
+echo "<pre>";
+var_dump($teams);
 
-$myJSON = json_encode($players);
-echo $myJSON;
 
+
+foreach ($teams as $team){
+    $teams
+}
 ?>
 
 
