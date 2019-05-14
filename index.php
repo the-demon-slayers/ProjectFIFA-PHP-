@@ -12,7 +12,7 @@ require 'header.php';
 <div class="background">
 <div class="fixed-header">
     <header>
-        <div class="header-content">
+        <div class="header-content" id="header">
             <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>
             <?php
             if (!isset($_SESSION['username'])){
@@ -40,7 +40,7 @@ require 'header.php';
     <div class="menu">
         <div class="menu-items">
             <ul class="menu-list">
-                <li><a href="404.html" class="menu-item">Teams</a></li>
+                <li><a href="#team-page" class="menu-item">Teams</a></li>
                 <li><a href="404.html" class="menu-item">Info</a></li>
                 <li><a href="404.html" class="menu-item">Boek toernooi</a></li>
                 <li><a href="404.html" class="menu-item">Gok app</a></li>
@@ -56,21 +56,21 @@ require 'header.php';
     </div>
 </div>
 
-<div class="teams">
+<div class="teams" id="team-page">
     <h3>Teams</h3>
     <?php
     echo '<div class="team">';
         echo '<ul>';
         foreach ($teams as $team){
             $team_name =  htmlentities($team['team_name']);
-            echo "<li><a href='team_detail.php?id={$team['id']}'> {$team_name}</a><img src='img/teambg.png'></li>";
+            echo "<a href='team_detail.php?id={$team['id']}'><div class='team-name'><li>{$team_name}</li></div></a>";
         }
     echo '</div>';
     ?>
 
 
     <?php
-    if (isset($_SESSION['username']) && $_SESSION['rights'] == 1){
+    if (isset($_SESSION['username'])){
         echo"
         <form action='add_team.php' method='post' id='teams'>
         <input type='text' name='team_name' id='team_name' placeholder='Team naam' required>
@@ -84,3 +84,4 @@ require 'header.php';
 </div>
 
 <?php require 'footer.php'; ?>
+<!-- && $_SESSION['rights'] == 1 -->
