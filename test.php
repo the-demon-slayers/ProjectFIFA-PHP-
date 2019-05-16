@@ -24,6 +24,7 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
 require 'header.php';
+$team_id = 9;
 ?>
 <style>
     .dropbtn {
@@ -68,8 +69,8 @@ require 'header.php';
         <?php
         foreach ($users as $user){
             $username = htmlentities($user['username']);
-            $id = htmlentities($user['id']);
-            echo "<a href=''>$username</a>";
+            $user_id = htmlentities($user['id']);
+            echo "<a href='test.php?id=$team_id&$user_id'>$username</a>";
         }
         ?>
     </div>
