@@ -68,6 +68,7 @@ require 'header.php';
         <?php
         foreach ($users as $user){
             $username = htmlentities($user['username']);
+            $id = htmlentities($user['id']);
             echo "<a href=''>$username</a>";
         }
         ?>
