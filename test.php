@@ -9,23 +9,74 @@
 
 require 'config.php';
 
-//$sql = "SELECT * FROM players";
-//$query = $db->query($sql);
-//$players = $query->fetchAll(PDO::FETCH_ASSOC);
-//
+$sql = "SELECT * FROM users";
+$query = $db->query($sql);
+$users = $query->fetchAll(PDO::FETCH_ASSOC);
+
 //$myJSON = json_encode($players);
 //echo $myJSON;
 
-$sql = "SELECT * FROM teams";
-$query = $db->query($sql);
-$teams = $query->fetchAll(PDO::FETCH_ASSOC);
-echo "<pre>";
-var_dump($teams);
+//$sql = "SELECT * FROM teams";
+//$query = $db->query($sql);
+//$teams = $query->fetchAll(PDO::FETCH_ASSOC);
+//echo "<pre>";
+//var_dump($teams);
 
 
-
-foreach ($teams as $team){
-}
+require 'header.php';
 ?>
+<style>
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    .dropdown:hover .dropdown-content {display: block;}
+
+    .dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+
+<div class="dropdown">
+    <button class="dropbtn">Dropdown</button>
+    <div class="dropdown-content">
+        <?php
+        foreach ($users as $user){
+            $username = htmlentities($user['username']);
+            echo "<a href=''>$username</a>";
+        }
+        ?>
+    </div>
+</div>
+
+
+
+
+<?php require 'footer.php'; ?>
 
 
