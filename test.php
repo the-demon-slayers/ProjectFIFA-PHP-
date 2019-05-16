@@ -63,9 +63,9 @@ $team_id = 9;
     .dropdown:hover .dropbtn {background-color: #3e8e41;}
 </style>
 
-<div class="dropdown">
-    <button class="dropbtn">Kies een speler</button>
-    <div class="dropdown-content">
+<div class='dropdown'>
+    <button class='dropbtn'>Kies een speler</button>
+    <div class='dropdown-content'>
         <?php
         foreach ($users as $user){
             $username = htmlentities($user['username']);

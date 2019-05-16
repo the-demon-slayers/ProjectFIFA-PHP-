@@ -26,6 +26,10 @@ $players = $prepare2->fetchAll(PDO::FETCH_ASSOC);
 $player_id = '0';
 $admin = 'ikbenrobin5';
 
+$sql = "SELECT * FROM users";
+$query = $db->query($sql);
+$users = $query->fetchAll(PDO::FETCH_ASSOC);
+
 session_start();
 require 'header.php';
 
@@ -75,12 +79,19 @@ echo " <p>Aangemaakt door: $made_by</p>";
              </form>
         ";
     }elseif (isset($_SESSION['username']) && $_SESSION['username'] == $admin) {
-        echo "
-             <form action='add_player.php?id=$id' method= 'post'>
-                <input type='text' id='player_name' name='player_name' required placeholder='Speler naam'>
-                <input type='submit' VALUE='Voeg speler toe'>
-             </form>
-        ";
+
+        echo "<div class='dropdown'>
+    <button class='dropbtn'>Kies een speler</button>
+    <div class='dropdown-content'>";
+        foreach ($users as $user){
+            $username = htmlentities($user['username']);
+            $user_id = htmlentities($user['id']);
+            echo "<a href='test.php?id=$id&$user_id'>$username</a>";
+        }
+
+        echo"</div>
+</div>
+";
     }
     ?>
 
