@@ -63,7 +63,7 @@ require 'header.php';
 </style>
 
 <div class="dropdown">
-    <button class="dropbtn">Dropdown</button>
+    <button class="dropbtn">Kies een speler</button>
     <div class="dropdown-content">
         <?php
         foreach ($users as $user){
