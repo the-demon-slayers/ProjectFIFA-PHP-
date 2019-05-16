@@ -13,11 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST'){
 
 require 'config.php';
 
-$id = $_GET['id'];
+$team_id = $_GET['id'];
 $query = "SELECT * FROM teams WHERE id = :id";
 $prepare1 = $db->prepare($query);
 $prepare1->execute([
-    ':id' => $id
+    ':id' => $team_id
 ]);
 
 $team = $prepare1->fetch(PDO::FETCH_ASSOC);
