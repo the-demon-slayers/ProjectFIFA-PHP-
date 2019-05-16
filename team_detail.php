@@ -6,11 +6,11 @@
  * Time: 14:14
  */
 require 'config.php';
-$team_id = $_GET['id'];
+$id = $_GET['id'];
 $sql = "SELECT * FROM teams WHERE id = :id";
 $prepare = $db->prepare($sql);
 $prepare->execute([
-    ':id' => $team_id
+    ':id' => $id
 ]);
 $team = $prepare->fetch(PDO::FETCH_ASSOC);
 $team_name = $team['team_name'];
@@ -69,14 +69,14 @@ echo " <p>Aangemaakt door: $made_by</p>";
 
     if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by) {
         echo "
-             <form action='add_player.php?id=$team_id' method= 'post'>
+             <form action='add_player.php?id=$id' method= 'post'>
                 <input type='text' id='player_name' name='player_name' required placeholder='Speler naam'>
                 <input type='submit' VALUE='Voeg speler toe'>
              </form>
         ";
     }elseif (isset($_SESSION['username']) && $_SESSION['username'] == $admin) {
         echo "
-             <form action='add_player.php?id=$team_id' method= 'post'>
+             <form action='add_player.php?id=$id' method= 'post'>
                 <input type='text' id='player_name' name='player_name' required placeholder='Speler naam'>
                 <input type='submit' VALUE='Voeg speler toe'>
              </form>
