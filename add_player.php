@@ -23,6 +23,7 @@ $prepare1->execute([
 
 $team = $prepare1->fetch(PDO::FETCH_ASSOC);
 $team_name = $team['team_name'];
+var_dump($team_name);
 
 $sql1 = "SELECT * FROM users WHERE id=:id";
 $prepare2 = $db->prepare($sql1);
@@ -38,8 +39,7 @@ $prepare->execute([
     ':team_name' => $team_name
 ]);
 
-var_dump($user_id);
-var_dump($player_name);
+
 
 
 
