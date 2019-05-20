@@ -10,6 +10,7 @@
 require 'config.php';
 
 $id = $_GET['id'];
+var_dump($id);
 
 $sql = "SELECT * FROM players WHERE id=:id";
 $prepare = $db->prepare($sql);
@@ -35,4 +36,4 @@ $prepare->execute([
 $result = $prepare->fetch(PDO::FETCH_ASSOC);
 $team_id = $result['id'];
 
-header("Location: team_detail.php?id=$team_id");
+//header("Location: team_detail.php?id=$team_id");

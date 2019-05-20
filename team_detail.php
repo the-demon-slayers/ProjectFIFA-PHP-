@@ -53,7 +53,7 @@ echo " <p>Aangemaakt door: $made_by</p>";
         foreach ($players as $player){
             $player_name =  htmlentities($player['player_name']);
             $player_id = htmlentities($player['id']);
-            echo"<button onclick='remove_player()'>{$player_name}</button>";
+            echo"<button onclick='remove_player($player_id)'>{$player_name}</button>";
         }
     }else if (isset($_SESSION['username']) && $_SESSION['username'] == $admin){
 
@@ -168,10 +168,10 @@ if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by ) {
         }
     }
 
-    function remove_player() {
+    function remove_player(player_id) {
         var r = confirm('Weet je zeker dat je deze speler wil verwijderen?');
         if(r == true){
-            window.location.href = 'remove_player.php?id=<?=$player_id?>';
+            window.location.href = 'remove_player.php?id='+ player_id;
         }
     }
 
