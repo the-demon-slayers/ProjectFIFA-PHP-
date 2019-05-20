@@ -61,7 +61,7 @@ echo " <p>Aangemaakt door: $made_by</p>";
         foreach ($players as $player){
             $player_name =  htmlentities($player['player_name']);
             $player_id = htmlentities($player['id']);
-            echo"<button onclick='remove_player()'>{$player_name}</button>";
+            echo"<button onclick='remove_player($player_id)'>{$player_name}</button>";
         }
     }else{
         foreach ($players as $player){
