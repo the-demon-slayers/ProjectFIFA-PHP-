@@ -6,14 +6,15 @@
  * Time: 15:24
  */
 
-if ($_SERVER['REQUEST_METHOD'] != 'POST'){
-    header('Location: index.php');
-    exit;
-}
+//if ($_SERVER['REQUEST_METHOD'] != 'POST'){
+//    header('Location: index.php');
+//    exit;
+//}
 
 require 'config.php';
-
+$user_id = $_GET['user_id'];
 $team_id = $_GET['id'];
+
 $query = "SELECT * FROM teams WHERE id = :id";
 $prepare1 = $db->prepare($query);
 $prepare1->execute([
@@ -23,7 +24,13 @@ $prepare1->execute([
 $team = $prepare1->fetch(PDO::FETCH_ASSOC);
 $team_name = $team['team_name'];
 
-$player_name = $_POST['player_name'];
+$sql1 = "SELECT * FROM users WHERE id=:id";
+$prepare2 = $db->prepare($sql1);
+$prepare2->execute([
+    ':id' => $user_id
+]);
+$player_name = $prepare2->fetchAll(PDO::FETCH_ASSOC);
+
 $sql = "INSERT INTO players (player_name, team_name) VALUES (:name, :team_name)";
 $prepare = $db->prepare($sql);
 $prepare->execute([
@@ -31,6 +38,11 @@ $prepare->execute([
     ':team_name' => $team_name
 ]);
 
-header("Location: team_detail.php?id=$id");
+var_dump($user_id);
+var_dump($player_name);
+
+
+
+//header("Location: team_detail.php?id=$team_id");
 
 ?>
