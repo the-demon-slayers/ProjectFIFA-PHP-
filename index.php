@@ -41,7 +41,7 @@ require 'header.php';
         <div class="menu-items">
             <ul class="menu-list">
                 <li><a href="#team-page" class="menu-item">Teams</a></li>
-                <li><a href="404.html" class="menu-item">Info</a></li>
+                <li><a href="#info" class="menu-item">Info</a></li>
                 <li><a href="404.html" class="menu-item">Boek toernooi</a></li>
                 <li><a href="404.html" class="menu-item">Gok app</a></li>
             </ul>
@@ -83,7 +83,7 @@ require 'header.php';
 </div>
 </div>
 
-<div class="information">
+<div class="information" id="info">
     <h2>Informatie over het toernooi</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium illum minima modi quas quibusdam quis sapiente? Adipisci deleniti distinctio, dolorum fugit id illo impedit magni modi necessitatibus nulla sequi voluptatum.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur autem earum est explicabo fuga fugiat harum incidunt, iste molestias nesciunt nobis numquam porro provident quibusdam quidem ratione sint temporibus.</p>
