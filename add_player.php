@@ -23,14 +23,14 @@ $prepare1->execute([
 
 $team = $prepare1->fetch(PDO::FETCH_ASSOC);
 $team_name = $team['team_name'];
-var_dump($team_name);
 
 $sql1 = "SELECT * FROM users WHERE id=:id";
 $prepare2 = $db->prepare($sql1);
 $prepare2->execute([
     ':id' => $user_id
 ]);
-$player_name = $prepare2->fetchAll(PDO::FETCH_ASSOC);
+$players = $prepare2->fetch(PDO::FETCH_ASSOC);
+$player_name = $players['username'];
 
 $sql = "INSERT INTO players (player_name, team_name) VALUES (:name, :team_name)";
 $prepare = $db->prepare($sql);
@@ -43,6 +43,6 @@ $prepare->execute([
 
 
 
-//header("Location: team_detail.php?id=$team_id");
+header("Location: team_detail.php?id=$team_id");
 
 ?>

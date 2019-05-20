@@ -78,7 +78,7 @@ echo " <p>Aangemaakt door: $made_by</p>";
         foreach ($users as $user){
             $username = htmlentities($user['username']);
             $user_id = htmlentities($user['id']);
-            echo "<a href='add_player.php?id=$id&$user_id'>$username</a>";
+            echo "<a href='add_player.php?id=$id&user_id=$user_id'>$username</a>";
         }
 
         echo"</div>
@@ -92,7 +92,7 @@ echo " <p>Aangemaakt door: $made_by</p>";
         foreach ($users as $user){
             $username = htmlentities($user['username']);
             $user_id = htmlentities($user['id']);
-            echo "<a href='add_player.php?id=$id&$user_id'>$username</a>";
+            echo "<a href='add_player.php?id=$id&user_id=$user_id'>$username</a>";
         }
 
         echo"</div>
