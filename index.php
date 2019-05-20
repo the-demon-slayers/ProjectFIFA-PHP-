@@ -49,7 +49,6 @@ require 'header.php';
      </div>
 </div>
 <div class="banner">
-
     <div class="bannerText">
         <h1>FIFA</h1>
         <h2>Voetbal wedstrijden voor Uw bedrijf</h2>
@@ -68,7 +67,6 @@ require 'header.php';
     echo '</div>';
     ?>
 
-
     <?php
     if (isset($_SESSION['username'])){
         echo"
@@ -81,7 +79,6 @@ require 'header.php';
     ?>
 
 </div>
-
 
     <div class="information" id="info">
         <h2>Informatie over het toernooi</h2>
