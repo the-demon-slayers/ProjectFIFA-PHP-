@@ -83,5 +83,11 @@ require 'header.php';
 </div>
 </div>
 
+<div class="information">
+    <h2>Informatie over het toernooi</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium illum minima modi quas quibusdam quis sapiente? Adipisci deleniti distinctio, dolorum fugit id illo impedit magni modi necessitatibus nulla sequi voluptatum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur autem earum est explicabo fuga fugiat harum incidunt, iste molestias nesciunt nobis numquam porro provident quibusdam quidem ratione sint temporibus.</p>
+</div>
+
 <?php require 'footer.php'; ?>
 <!-- && $_SESSION['rights'] == 1 -->
