@@ -121,7 +121,8 @@ header{
     justify-content: space-around; */
     /* padding: 20px;
     align-items: center; */
-    background-color: #6393b6;
+    /*background-color: #6393b6;*/
+    background-color: #8699ba;
 }
 .fixed-header{
     position: fixed;
