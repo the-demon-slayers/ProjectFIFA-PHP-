@@ -7,8 +7,6 @@
  */
 
 
-
-
 require 'header.php';
 ?>
 
