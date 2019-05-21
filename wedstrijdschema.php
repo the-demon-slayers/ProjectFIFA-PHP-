@@ -7,12 +7,17 @@
  */
 require 'config.php';
 
-$sql = "SELECT * FROM teams";
+$sql = "SELECT team_name FROM teams";
 $query = $db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
-echo"<pre>";
-var_dump($teams);
+$amount_of_teams = count($teams);
+
+echo "$amount_of_teams";
+
+$amount_of_matches = $amount_of_teams * $amount_of_teams - $amount_of_teams;
+$amount_of_matches = $amount_of_matches / 2;
+var_dump($amount_of_matches);
 
 
 require 'header.php';
