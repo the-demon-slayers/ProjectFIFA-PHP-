@@ -40,6 +40,7 @@ $teamsLength = count($teams);
         </tr>
         <?php
     }
-    ?> </table>
+    ?>
+</table>
 
 <?php require 'footer.php'; ?>
