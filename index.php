@@ -5,7 +5,7 @@ session_start();
 $sql = "SELECT * FROM teams";
 $query = $db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
-
+$admin = 'ikbenrobin5';
 require 'header.php';
 ?>
 
@@ -29,9 +29,9 @@ require 'header.php';
             }else{
                 echo "<a href='logout.php'>Uitloggen voor ".$_SESSION['username']."</a>";
 
-                if ($_SESSION['username'] == 'ikbenrobin5') {
-                    echo "<a href='all_profiles.php'>Alle profielen</a>";
-                }
+//                if ($_SESSION['username'] == 'ikbenrobin5') {
+//                    echo "<a href='all_profiles.php'>Alle profielen</a>";
+//                }
             }
             ?>
         </div> 
@@ -41,7 +41,13 @@ require 'header.php';
         <div class="menu-items">
             <ul class="menu-list">
                 <li><a href="#team-page" class="menu-item">Teams</a></li>
-                <li><a href="wedstrijdschema.php" class="menu-item">Wedstrijdschema</a> </li>
+                <?php
+                if(isset($_SESSION['username']) && $_SESSION['username']== $admin) {
+                    echo "
+                <li><a href='wedstrijdschema.php' class='menu-item'>Wedstrijdschema</a></li>
+                ";
+                }
+                ?>
                 <li><a href="#info" class="menu-item">Info</a></li>
                 <li><a href="404.html" class="menu-item">Boek toernooi</a></li>
                 <li><a href="404.html" class="menu-item">Gok app</a></li>
