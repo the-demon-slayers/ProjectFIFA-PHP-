@@ -25,7 +25,7 @@
     font-style: normal;
 }
 
-p, h1, h2, h3, input, a{
+p, h1, h2, h3, input, a, th, table{
     font-family: Main;
 }
 /*
@@ -156,7 +156,19 @@ header a{
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
-
+/*================================Table========================================*/
+table
+{
+    margin: 0 auto;
+    align-self: center;
+    text-align: center;
+    font-size: 2.2em;
+}
+table td
+{
+    padding: 32px;
+    background-color: #f1f1f1;
+}
 /* ================================Menu======================================== */
 
 
@@ -171,10 +183,12 @@ header a{
 .menu-item{
     text-decoration: none;
     color: black;
+    opacity: 0.8;
 }
 .menu-item:hover{
     margin-right: 15px;
-    background-color: rgba(255, 255, 255, .90);
+    /*background-color: rgba(255, 255, 255, .90);*/
+    opacity: 1.0;
 }
 
 .menu-list{
@@ -183,6 +197,9 @@ header a{
     padding-right: 10px;
     border-right: solid;
     display: inline-block;
+    background-color: #f1f1f1;
+    opacity: 0.42;
+
 }
 
 
