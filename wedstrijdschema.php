@@ -11,12 +11,16 @@ require 'header.php';
 ?>
 
 <?php
-require 'Config.php';
 $sql = "SELECT team_name FROM teams;";
 $prepare = $db->prepare($sql);
 $prepare->execute();
 $teams = $prepare->fetchAll(PDO::FETCH_ASSOC);
 $teamsLength = count($teams);
+
+
+$sql_games = "INSERT INTO games (team1, team2) VALUES (:team1, :team2)";
+$prepare_games = $db->prepare($sql_games);
+
 
 ?>
 <table>
@@ -30,6 +34,12 @@ $teamsLength = count($teams);
         foreach ($teams as $otherTeam) {
             $teamName = $team['team_name'];
             $otherTeamName = $otherTeam['team_name'];
+
+            $prepare_games->execute([
+                ':team1' => $team['team_name'],
+                ':team2' => $otherTeam['team_name']
+            ]);
+
             ?>
             <tr>
             <?php
