@@ -17,6 +17,8 @@ $prepare->execute();
 $teams = $prepare->fetchAll(PDO::FETCH_ASSOC);
 $teamsLength = count($teams);
 
+$sql_delete = "DELETE FROM games";
+$query_delete = $db->query($sql_delete);
 
 $sql_games = "INSERT INTO games (team1, team2) VALUES (:team1, :team2)";
 $prepare_games = $db->prepare($sql_games);
