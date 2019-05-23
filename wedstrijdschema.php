@@ -24,30 +24,35 @@ $sql_games = "INSERT INTO games (team1, team2) VALUES (:team1, :team2)";
 $prepare_games = $db->prepare($sql_games);
 
 
+if (!isset($_SESSION['username'])) {
+    header('Location: index.php');
+    exit();
+}
+
 ?>
 <header>
      
     <div class="header-content" id="header">
             <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>
-            <?php
-            if (!isset($_SESSION['username'])){
-                echo"
-                <div class='login'>
-                <form action='login.php' method='post'>
-                    <input type='text' id='username' name='username' placeholder='Gebruikersnaam' required>
-                    <input type='password' id='password' name='password' placeholder='Wachtwoord' required>
-                    <input type='submit' value='Login'>
-                </form>
-                <a href='register_form.php' class='register-link'>Maak een account aan</a>       
-            </div>    
-            ";
-            }else{
-                echo "<a href='logout.php'>Uitloggen voor ".$_SESSION['username']."</a>";
+<!--            --><?php
+//            if (!isset($_SESSION['username'])){
+//                echo"
+//                <div class='login'>
+//                <form action='login.php' method='post'>
+//                    <input type='text' id='username' name='username' placeholder='Gebruikersnaam' required>
+//                    <input type='password' id='password' name='password' placeholder='Wachtwoord' required>
+//                    <input type='submit' value='Login'>
+//                </form>
+//                <a href='register_form.php' class='register-link'>Maak een account aan</a>
+//            </div>
+//            ";
+//            }else{
+//                echo "<a href='logout.php'>Uitloggen voor ".$_SESSION['username']."</a>";
 
 //                if ($_SESSION['username'] == 'ikbenrobin5') {
 //                    echo "<a href='all_profiles.php'>Alle profielen</a>";
 //                }
-            }
+//            }
             ?>
         </div>
     </header>
