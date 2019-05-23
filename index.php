@@ -41,6 +41,7 @@ require 'header.php';
         <div class="menu-items">
             <ul class="menu-list">
                 <li><a href="#team-page" class="menu-item">Teams</a></li>
+                <li><a href="wedstrijdschema.php" class="menu-item">Wedstrijdschema</a> </li>
                 <li><a href="#info" class="menu-item">Info</a></li>
                 <li><a href="404.html" class="menu-item">Boek toernooi</a></li>
                 <li><a href="404.html" class="menu-item">Gok app</a></li>
