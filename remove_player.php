@@ -10,7 +10,6 @@
 require 'config.php';
 
 $id = $_GET['id'];
-var_dump($id);
 
 $sql = "SELECT * FROM players WHERE id=:id";
 $prepare = $db->prepare($sql);

@@ -7,7 +7,7 @@
  */
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     header('Location: index.php');
-    exit;
+    exit();
 }
 
 session_start();
@@ -28,9 +28,7 @@ $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
 if ($result){
     $hashed_password = $result[0]['password'];
     if (password_verify($password, $hashed_password)) {
-        $rights = $result[0]['rights'];
         $_SESSION['username'] = $username;
-        $_SESSION['rights'] = $rights;
         header('Location: index.php');
         exit();
     }
