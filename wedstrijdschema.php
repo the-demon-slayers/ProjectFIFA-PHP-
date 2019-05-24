@@ -58,11 +58,12 @@ if (!isset($_SESSION['username'])) {
     </header>
    
 </header>
-<div class="background">   
+<div class="background">
+
 <table>
     <tr>
         <th>Team 1</th>
-        <th>  </th>
+        <th></th>
         <th>Team 2</th>
     </tr>
     <?php
