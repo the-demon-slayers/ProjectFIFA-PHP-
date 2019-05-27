@@ -70,17 +70,13 @@ if (!isset($_SESSION['username'])) {
             $teamName = $team['team_name'];
             $otherTeamName = $otherTeam['team_name'];
 
-//            $prepare_games->execute([
-//                ':team1' => $team['team_name'],
-//                ':team2' => $otherTeam['team_name']
-//            ]);
-
             ?>
             <tr>
             <?php
             echo "<td>$teamName</td>";
             echo "<td> VS. </td>";
             echo "<td>$otherTeamName</td>";
+
         }
         ?>
         </tr>
