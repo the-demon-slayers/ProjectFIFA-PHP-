@@ -6,6 +6,8 @@
  * Time: 14:14
  */
 require 'config.php';
+require 'header.php';
+session_start();
 $id = $_GET['id'];
 $sql = "SELECT * FROM teams WHERE id = :id";
 $prepare = $db->prepare($sql);
@@ -30,19 +32,19 @@ $sql = "SELECT * FROM users";
 $query = $db->query($sql);
 $users = $query->fetchAll(PDO::FETCH_ASSOC);
 
-session_start();
-require 'header.php';
-
 ?>
 
 <header>
-    <a href="index.php"><h1>FIFA</h1></a>
+    <div class="header-content" id="header">
+        <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>
+    </div>
 </header>
-
+<div class="background">
 <?php
 echo "<h2>$team_name</h2>";
 echo " <p>Aangemaakt door: $made_by</p>";
 ?>
+
 
 <div class="players">
 
@@ -138,6 +140,8 @@ if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by ) {
 }
 
 ?>
+</div>
+
 
 <script>
 
