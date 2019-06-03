@@ -20,6 +20,10 @@ $teamsLength = count($teams);
 $sql_games = "INSERT INTO games (team1, team2) VALUES (:team1, :team2)";
 $prepare_games = $db->prepare($sql_games);
 
+$sql_points = "SELECT team1, team2, team1_points, team2_points FROM games";
+$prepare = $db->prepare($sql_points);
+$prepare->execute();
+$points = $prepare->fetchAll(PDO::FETCH_ASSOC);
 
 if (!isset($_SESSION['username'])) {
     header('Location: index.php');
@@ -57,32 +61,53 @@ if (!isset($_SESSION['username'])) {
 </header>
 <div class="background">
     <a href="reload_schema.php">Refresh schema</a>
+
 <table>
     <tr>
+        <th>Punten</th>
         <th>Team 1</th>
         <th></th>
         <th>Team 2</th>
+        <th>Punten</th>
     </tr>
     <?php
+
     foreach ($teams as $team) {
         $teams = array_slice($teams, 1, $teamsLength);
+
         foreach ($teams as $otherTeam) {
             $teamName = $team['team_name'];
             $otherTeamName = $otherTeam['team_name'];
 
-            ?>
-            <tr>
-            <?php
-            echo "<td>$teamName</td>";
-            echo "<td> VS. </td>";
-            echo "<td>$otherTeamName</td>";
+            foreach ($points as $poin){
+                if(){
+                    $team1_points = $poin['team1_points'];
+                    $team2_points = $poin['team2_points'];
 
-        }
-        ?>
-        </tr>
+            ?>
+
+    <tr>
         <?php
-    }
-    ?>
+                echo "<td>
+                                    <form action='' method='post'>
+                                         <input type='text' placeholder='$team1_points'>
+                                    </form>
+                                    </td>";
+                    echo "<td>$teamName</td>";
+                    echo "<td> VS </td>";
+                    echo "<td>$otherTeamName</td>";
+                    echo "<td>
+                                    <form action='' method='post'>
+                                        <input type='text' placeholder='$team2_points'>
+                                    </form>
+                        </td>";
+                }// if
+            } // foreach ($points as $poin)
+        } // foreach ($teams as $otherTeam)
+
+    } // foreach ($teams as $team)
+        ?>
+    </tr>
 </table>
 
 <?php require 'footer.php'; ?>
