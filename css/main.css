@@ -269,10 +269,12 @@ table td
     text-align: center;
 }
 
+/* ============================Team View============================== */
+
 .player-view{
     height: 100vh;
 }
-.team-name{
+.team-title{
     margin: 0;
 }
 
