@@ -79,7 +79,7 @@ if (!isset($_SESSION['username'])) {
             $otherTeamName = $otherTeam['team_name'];
 
             foreach ($points as $poin){
-                if($otherTeam != $team){
+                if(){
                     $team1_points = $poin['team1_points'];
                     $team2_points = $poin['team2_points'];
             ?>
