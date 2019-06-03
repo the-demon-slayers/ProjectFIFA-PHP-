@@ -74,16 +74,14 @@ if (!isset($_SESSION['username'])) {
 
     foreach ($teams as $team) {
         $teams = array_slice($teams, 1, $teamsLength);
-
         foreach ($teams as $otherTeam) {
             $teamName = $team['team_name'];
             $otherTeamName = $otherTeam['team_name'];
 
             foreach ($points as $poin){
-                if(){
+                if($teamName == $poin['team1']){
                     $team1_points = $poin['team1_points'];
                     $team2_points = $poin['team2_points'];
-
             ?>
 
     <tr>
@@ -104,7 +102,6 @@ if (!isset($_SESSION['username'])) {
                 }// if
             } // foreach ($points as $poin)
         } // foreach ($teams as $otherTeam)
-
     } // foreach ($teams as $team)
         ?>
     </tr>
