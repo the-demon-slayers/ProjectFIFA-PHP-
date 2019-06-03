@@ -33,115 +33,116 @@ $query = $db->query($sql);
 $users = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
-<header>
-    <div class="header-content" id="header">
-        <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>
-    </div>
-</header>
 <div class="background">
-<?php
-echo "<h2>$team_name</h2>";
-echo " <p>Aangemaakt door: $made_by</p>";
-?>
-
-
-<div class="players">
-
-    <?php
-    if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by){
-        echo '<ul>';
-        foreach ($players as $player){
-            $player_name =  htmlentities($player['player_name']);
-            $player_id = htmlentities($player['id']);
-            echo"<button onclick='remove_player($player_id)'>{$player_name}</button>";
-        }
-    }else if (isset($_SESSION['username']) && $_SESSION['username'] == $admin){
-
-        echo '<ul>';
-        foreach ($players as $player){
-            $player_name =  htmlentities($player['player_name']);
-            $player_id = htmlentities($player['id']);
-            echo"<button onclick='remove_player($player_id)'>{$player_name}</button>";
-        }
-    }else{
-        foreach ($players as $player){
-            $player_name = htmlentities($player['player_name']);
-            $player_id = htmlentities($player['id']);
-            echo "<button class='noRightsBtn'>$player_name</button>";
-        }
-    }
-
-    if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by) {
-        echo "<div class='dropdown'>
-    <button class='dropbtn'>Kies een speler</button>
-    <div class='dropdown-content'>";
-        foreach ($users as $user){
-            $username = htmlentities($user['username']);
-            $user_id = htmlentities($user['id']);
-            echo "<a href='add_player.php?id=$id&user_id=$user_id'>$username</a>";
-        }
-
-        echo"</div>
-</div>
-";
-    }elseif (isset($_SESSION['username']) && $_SESSION['username'] == $admin) {
-
-        echo "<div class='dropdown'>
-    <button class='dropbtn'>Kies een speler</button>
-    <div class='dropdown-content'>";
-        foreach ($users as $user){
-            $username = htmlentities($user['username']);
-            $user_id = htmlentities($user['id']);
-            echo "<a href='add_player.php?id=$id&user_id=$user_id'>$username</a>";
-        }
-
-        echo"</div>
-</div>
-";
-    }
-    ?>
-
-</div>
-
-<?php
-if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by ) {
-
-    if (!isset($player_id)) {
-        echo "
-            <div class='remove'>
-                <button onclick='remove_team()'>Verwijder team</button>
+    <div class="player-view">
+        <header>
+            <div class="header-content" id="header">
+                <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>
             </div>
-         ";
+        </header>
 
-    } else {
-        echo "
-            <div class='remove'>
-                <button onclick='remove()'>Verwijder team</button>
-            </div>
-         ";
-    }
-}elseif (isset($_SESSION['username']) && $_SESSION['username'] == $admin){
 
-    if (!isset($player_id)) {
-        echo "
-            <div class='remove'>
-                <button onclick='remove_team()'>Verwijder team</button>
-            </div>
-         ";
+            
+            <?php
+            echo "<h2 class='team-name'>$team_name</h2>";
+            echo " <p>Aangemaakt door: $made_by</p>";
+            ?>
+                <div class="players">
 
-    } else {
-        echo "
-            <div class='remove'>
-                <button onclick='remove()'>Verwijder team</button>
-            </div>
-         ";
-    }
-}
+                    <?php
+                    if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by){
+                        echo '<ul>';
+                        foreach ($players as $player){
+                            $player_name =  htmlentities($player['player_name']);
+                            $player_id = htmlentities($player['id']);
+                            echo"<button onclick='remove_player($player_id)'>{$player_name}</button>";
+                        }
+                    }else if (isset($_SESSION['username']) && $_SESSION['username'] == $admin){
 
-?>
+                        echo '<ul>';
+                        foreach ($players as $player){
+                            $player_name =  htmlentities($player['player_name']);
+                            $player_id = htmlentities($player['id']);
+                            echo"<button onclick='remove_player($player_id)'>{$player_name}</button>";
+                        }
+                    }else{
+                        foreach ($players as $player){
+                            $player_name = htmlentities($player['player_name']);
+                            $player_id = htmlentities($player['id']);
+                            echo "<button class='noRightsBtn'>$player_name</button>";
+                        }
+                    }
+
+                    if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by) {
+                        echo "<div class='dropdown'>
+                    <button class='dropbtn'>Kies een speler</button>
+                    <div class='dropdown-content'>";
+                        foreach ($users as $user){
+                            $username = htmlentities($user['username']);
+                            $user_id = htmlentities($user['id']);
+                            echo "<a href='add_player.php?id=$id&user_id=$user_id'>$username</a>";
+                        }
+
+                        echo"</div>
+                </div>
+                ";
+                    }elseif (isset($_SESSION['username']) && $_SESSION['username'] == $admin) {
+
+                        echo "<div class='dropdown'>
+                    <button class='dropbtn'>Kies een speler</button>
+                    <div class='dropdown-content'>";
+                        foreach ($users as $user){
+                            $username = htmlentities($user['username']);
+                            $user_id = htmlentities($user['id']);
+                            echo "<a href='add_player.php?id=$id&user_id=$user_id'>$username</a>";
+                        }
+
+                        echo"</div>
+                </div>
+                ";
+                    }
+                    ?>
+
+                </div>
+
+                <?php
+                if (isset($_SESSION['username']) && $_SESSION['username'] == $made_by ) {
+
+                    if (!isset($player_id)) {
+                        echo "
+                            <div class='remove'>
+                                <button onclick='remove_team()'>Verwijder team</button>
+                            </div>
+                        ";
+
+                    } else {
+                        echo "
+                            <div class='remove'>
+                                <button onclick='remove()'>Verwijder team</button>
+                            </div>
+                        ";
+                    }
+                }elseif (isset($_SESSION['username']) && $_SESSION['username'] == $admin){
+
+                    if (!isset($player_id)) {
+                        echo "
+                            <div class='remove'>
+                                <button onclick='remove_team()'>Verwijder team</button>
+                            </div>
+                        ";
+
+                    } else {
+                        echo "
+                            <div class='remove'>
+                                <button onclick='remove()'>Verwijder team</button>
+                            </div>
+                        ";
+                    }
+                }
+
+                ?>
+    </div>
 </div>
-
 
 <script>
 

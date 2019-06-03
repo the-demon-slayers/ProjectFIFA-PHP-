@@ -183,12 +183,10 @@ table td
 .menu-item{
     text-decoration: none;
     color: black;
-    opacity: 0.8;
 }
 .menu-item:hover{
     margin-right: 15px;
-    /*background-color: rgba(255, 255, 255, .90);*/
-    opacity: 1.0;
+    background-color: rgba(255, 255, 255, .90);
 }
 
 .menu-list{
@@ -197,9 +195,6 @@ table td
     padding-right: 10px;
     border-right: solid;
     display: inline-block;
-    background-color: #f1f1f1;
-    opacity: 0.42;
-
 }
 
 
@@ -258,7 +253,6 @@ table td
     margin: 32px;
 }
 .team-name{
-    background-image: url(../img/teambg.png);
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -275,7 +269,12 @@ table td
     text-align: center;
 }
 
-
+.player-view{
+    height: 100vh;
+}
+.team-name{
+    margin: 0;
+}
 
 .dropbtn {
     background-color: #4CAF50;
