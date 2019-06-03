@@ -253,6 +253,7 @@ table td
     margin: 32px;
 }
 .team-name{
+    background-image: url(../img/teambg.png);
     background-repeat: no-repeat;
     background-position: center;
 }
