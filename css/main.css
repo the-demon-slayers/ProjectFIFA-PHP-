@@ -258,7 +258,6 @@ table td
     margin: 32px;
 }
 .team-name{
-    background-image: url(../img/teambg.png);
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -275,7 +274,12 @@ table td
     text-align: center;
 }
 
-
+.player-view{
+    height: 100vh;
+}
+.team-name{
+    margin: 0;
+}
 
 .dropbtn {
     background-color: #4CAF50;
