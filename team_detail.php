@@ -34,7 +34,7 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <div class="background">
-    <div class="player-view">
+    <div class="team-view">
         <header>
             <div class="header-content" id="header">
                 <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>

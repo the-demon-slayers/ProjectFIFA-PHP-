@@ -253,6 +253,7 @@ table td
     margin: 32px;
 }
 .team-name{
+    background-image: url(../img/teambg.png);
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -271,7 +272,7 @@ table td
 
 /* ============================Team View============================== */
 
-.player-view{
+.team-view{
     height: 100vh;
 }
 .team-title{
