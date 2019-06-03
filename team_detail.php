@@ -44,7 +44,7 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
 
             
             <?php
-            echo "<h2 class='team-name'>$team_name</h2>";
+            echo "<h2 class='team-title'>$team_name</h2>";
             echo " <p>Aangemaakt door: $made_by</p>";
             ?>
                 <div class="players">
