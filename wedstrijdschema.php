@@ -113,25 +113,23 @@ if (!isset($_SESSION['username'])) {
             <th></th>
             <th>Team 2</th>
         </tr>
+        <tr>
+            <?php
+            $sql = "SELECT * FROM games";
+            $prepare = $db->prepare($sql);
+            $prepare->execute();
+            $games = $prepare->fetchALL(PDO::FETCH_ASSOC);
 
-    <?php
-    $sql = "SELECT * FROM games";
-    $prepare = $db->prepare($sql);
-    $prepare->execute();
-    $games = $prepare->fetchALL(PDO::FETCH_ASSOC);
+            foreach ($games as $game){
+                $team1 = $game['team1'];
+                $team2 = $game['team2'];
 
-    foreach ($games as $game){
-        $team1 = $game['team1'];
-        $team2 = $game['team2'];
-
-        echo"<td>$team1</td>";
-        echo"<td>VS</td>";
-        echo"<td>$team2</td>";
-    }
-
-    ?>
-
-
+                echo"<td>$team1</td>";
+                echo"<td>VS</td>";
+                echo"<td>$team2</td>";
+            }
+            ?>
+        </tr>
 
     </table>
 
