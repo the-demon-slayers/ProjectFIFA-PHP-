@@ -62,14 +62,14 @@ if (!isset($_SESSION['username'])) {
 <div class="background">
     <a href="reload_schema.php">Refresh schema</a>
 
-<table>
-    <tr>
-        <th>Punten</th>
-        <th>Team 1</th>
-        <th></th>
-        <th>Team 2</th>
-        <th>Punten</th>
-    </tr>
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th>Punten</th>-->
+<!--        <th>Team 1</th>-->
+<!--        <th></th>-->
+<!--        <th>Team 2</th>-->
+<!--       <th>Punten</th>-->
+<!--    </tr>-->
     <?php
 
     foreach ($teams as $team) {
@@ -78,33 +78,61 @@ if (!isset($_SESSION['username'])) {
             $teamName = $team['team_name'];
             $otherTeamName = $otherTeam['team_name'];
 
-            foreach ($points as $poin){
-                if($team == $poin['team2']){
-                    $team1_points = $poin['team1_points'];
-                    $team2_points = $poin['team2_points'];
+//            foreach ($points as $poin){
+////                if($team == $poin['team1']){
+//                    $team1_points = $poin['team1_points'];
+//                    $team2_points = $poin['team2_points'];
             ?>
 
-    <tr>
+<!--    <tr>-->
         <?php
-                echo "<td>
-                                    <form action='' method='post'>
-                                         <input type='text' placeholder='$team1_points'>
-                                    </form>
-                                    </td>";
-                    echo "<td>$teamName</td>";
-                    echo "<td> VS </td>";
-                    echo "<td>$otherTeamName</td>";
-                    echo "<td>
-                                    <form action='' method='post'>
-                                        <input type='text' placeholder='$team2_points'>
-                                    </form>
-                        </td>";
-                }// if
-            } // foreach ($points as $poin)
+//                echo "<td>
+//                                    <form action='' method='post'>
+//                                         <input type='text' placeholder='$team1_points'>
+//                                    </form>
+//                                    </td>";
+//                    echo "<td>$teamName</td>";
+//                    echo "<td> VS </td>";
+//                    echo "<td>$otherTeamName</td>";
+////                    echo "<td>
+//                                    <form action='' method='post'>
+//                                        <input type='text' placeholder='$team2_points'>
+//                                    </form>
+//                        </td>";
+//                }// if
+//            } // foreach ($points as $poin)
         } // foreach ($teams as $otherTeam)
     } // foreach ($teams as $team)
         ?>
-    </tr>
-</table>
+<!--    </tr>-->
+<!--</table>-->
+
+    <table>
+        <tr>
+            <th>Team 1</th>
+            <th></th>
+            <th>Team 2</th>
+        </tr>
+
+    <?php
+    $sql = "SELECT * FROM games";
+    $prepare = $db->prepare($sql);
+    $prepare->execute();
+    $games = $prepare->fetchALL(PDO::FETCH_ASSOC);
+
+    foreach ($games as $game){
+        $team1 = $game['team1'];
+        $team2 = $game['team2'];
+
+        echo"<td>$team1</td>";
+        echo"<td>VS</td>";
+        echo"<td>$team2</td>";
+    }
+
+    ?>
+
+
+
+    </table>
 
 <?php require 'footer.php'; ?>
