@@ -35,7 +35,7 @@ if (!isset($_SESSION['username'])) {
      
     <div class="header-content" id="header">
             <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>
-            <a href="reload_schema.php">Refresh schema</a>
+            <a href="reload_schema.php">Reset schema</a>
 <!--            --><?php
 //            if (!isset($_SESSION['username'])){
 //                echo"
