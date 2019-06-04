@@ -41,6 +41,7 @@ require 'header.php';
         <div class="menu-items">
             <ul class="menu-list">
                 <li><a href="#team-page" class="menu-item">Teams</a></li>
+                <li><a href="#info" class="menu-item">Info</a></li>
                 <?php
                 if(isset($_SESSION['username'])) {
                     echo "
@@ -48,9 +49,7 @@ require 'header.php';
                 ";
                 }
                 ?>
-                <li><a href="#info" class="menu-item">Info</a></li>
-<!--                <li><a href="404.html" class="menu-item">Boek toernooi</a></li>-->
-<!--                <li><a href="404.html" class="menu-item">Gok app</a></li>-->
+                
             </ul>
         </div>
      </div>
@@ -89,7 +88,7 @@ require 'header.php';
 
     <div class="information" id="info">
         <div class="info-text">
-            <h2>Informatie over het toernooi</h2>
+            <h1>Informatie over het toernooi</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium illum minima modi quas quibusdam quis sapiente? Adipisci deleniti distinctio, dolorum fugit id illo impedit magni modi necessitatibus nulla sequi voluptatum.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur autem earum est explicabo fuga fugiat harum incidunt, iste molestias nesciunt nobis numquam porro provident quibusdam quidem ratione sint temporibus.</p>
         </div>
