@@ -42,7 +42,7 @@ require 'header.php';
             <ul class="menu-list">
                 <li><a href="#team-page" class="menu-item">Teams</a></li>
                 <?php
-                if(isset($_SESSION['username']) && $_SESSION['username']== $admin) {
+                if(isset($_SESSION['username'])) {
                     echo "
                 <li><a href='wedstrijdschema.php' class='menu-item'>Wedstrijdschema</a></li>
                 ";
