@@ -13,9 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 $game_id = $_GET['id'];
 $team1_points = $_POST['team1_points'];
 $team2_points = $_POST['team2_points'];
+
 require 'config.php';
 
-$sql = "INSERT INTO games (team1_points, team2_points) VALUES (:team1_points, :team2_points) WHERE id = :id";
+$sql = "INSERT INTO games (team1_points, team2_points) VALUES (:team1_points, :team2_points) WHERE (id) = :id";
 $prepare = $db->prepare($sql);
 $prepare->execute([
     ':team1_points' => $team1_points,
@@ -23,6 +24,6 @@ $prepare->execute([
     ':id' => $game_id
 ]);
 
-header('Location: wedstrijdschema.php')
+//header('Location: wedstrijdschema.php')
 
 ?>
