@@ -133,7 +133,11 @@ if (!isset($_SESSION['username'])) {
                 echo"$team1 ";
                 echo"VS ";
                 echo"$team2 ";
-                echo"<a href='add_points.php?id=$game_id'>$team1_points:$team2_points</a>";
+                if (isset($_SESSION['username']) && $_SESSION['username'] == 'ikbenrobin5') {
+                    echo "<a href='add_points.php?id=$game_id'>$team1_points:$team2_points</a>";
+                }else{
+                    echo"$team1_points:$team2_points";
+                }
                 echo"</p>";
                 echo"</div>";
             }
