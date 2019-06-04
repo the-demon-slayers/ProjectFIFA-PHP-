@@ -85,7 +85,7 @@ if (!isset($_SESSION['username'])) {
             ?>
 
 <!--    <tr>-->
-        <?php
+     <?php
 //                echo "<td>
 //                                    <form action='' method='post'>
 //                                         <input type='text' placeholder='$team1_points'>
@@ -103,7 +103,7 @@ if (!isset($_SESSION['username'])) {
 //            } // foreach ($points as $poin)
         } // foreach ($teams as $otherTeam)
     } // foreach ($teams as $team)
-        ?>
+     ?>
 <!--    </tr>-->
 <!--</table>-->
 
@@ -130,7 +130,6 @@ if (!isset($_SESSION['username'])) {
             }
             ?>
         </tr>
-
     </table>
 
 <?php require 'footer.php'; ?>
