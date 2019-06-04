@@ -49,8 +49,8 @@ require 'header.php';
                 }
                 ?>
                 <li><a href="#info" class="menu-item">Info</a></li>
-                <li><a href="404.html" class="menu-item">Boek toernooi</a></li>
-                <li><a href="404.html" class="menu-item">Gok app</a></li>
+<!--                <li><a href="404.html" class="menu-item">Boek toernooi</a></li>-->
+<!--                <li><a href="404.html" class="menu-item">Gok app</a></li>-->
             </ul>
         </div>
      </div>
