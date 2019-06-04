@@ -107,6 +107,13 @@ if (!isset($_SESSION['username'])) {
 <!--    </tr>-->
 <!--</table>-->
 
+    <?php
+    $sql = "SELECT * FROM games";
+    $prepare = $db->prepare($sql);
+    $prepare->execute();
+    $games = $prepare->fetchALL(PDO::FETCH_ASSOC);
+    ?>
+
     <table>
         <tr>
             <th>Team 1</th>
@@ -115,11 +122,6 @@ if (!isset($_SESSION['username'])) {
         </tr>
         <tr>
             <?php
-            $sql = "SELECT * FROM games";
-            $prepare = $db->prepare($sql);
-            $prepare->execute();
-            $games = $prepare->fetchALL(PDO::FETCH_ASSOC);
-
             foreach ($games as $game){
                 $team1 = $game['team1'];
                 $team2 = $game['team2'];
