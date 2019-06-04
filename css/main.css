@@ -163,11 +163,24 @@ table
     align-self: center;
     text-align: center;
     font-size: 2.2em;
+    display: flex;
+    flex-direction: column;
 }
 table td
 {
     padding: 32px;
     background-color: #f1f1f1;
+}
+
+.row{
+    background: #fedde9;
+}
+
+.box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
 }
 /* ================================Menu======================================== */
 

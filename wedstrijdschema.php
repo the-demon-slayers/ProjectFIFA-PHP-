@@ -114,24 +114,25 @@ if (!isset($_SESSION['username'])) {
     $games = $prepare->fetchALL(PDO::FETCH_ASSOC);
     ?>
 
-    <table>
-        <tr>
-            <th>Team 1</th>
-            <th></th>
-            <th>Team 2</th>
-        </tr>
-        <tr>
+
             <?php
+            echo"<div class='box'>";
             foreach ($games as $game){
                 $team1 = $game['team1'];
                 $team2 = $game['team2'];
-
-                echo"<td>$team1</td>";
-                echo"<td>VS</td>";
-                echo"<td>$team2</td>";
+                $game_id = $game['id'];
+                $team1_points = $game['team1_points'];
+                $team2_points = $game['team2_points'];
+            echo"<div class='row'>";
+                echo"<p>";
+                echo"$team1 ";
+                echo"VS ";
+                echo"$team2 ";
+                echo"<a href='add_points.php?id=$game_id'>$team1_points:$team2_points</a>";
+                echo"</p>";
+                echo"</div>";
             }
+            echo"</div>";
             ?>
-        </tr>
-    </table>
 
 <?php require 'footer.php'; ?>
