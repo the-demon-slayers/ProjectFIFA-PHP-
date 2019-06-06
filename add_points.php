@@ -21,32 +21,34 @@ $team1_points = $game['team1_points'];
 $team2_points = $game['team2_points'];
 require 'header.php';
 ?>
-<header>
-
-    <div class="header-content" id="header">
-        <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>
-    </div>
-</header>
-
-</header>
 <div class="background">
-
-
-<?php
-echo"
-<form action='add_points_config.php?id=$game_id' method='post'>
-    <label for=''>$team1_name</label>
-    <input type='text' placeholder='$team1_points' name='team1_points' id='team1_points'>
-    <label for=''>$team2_name</label>
-    <input type='text' placeholder='$team2_points' name='team2_points' id='team2_points'>
-    <input type='submit' value='Voeg punten toe'>
-</form>
-";
-?>
-
-
-
-
+    <div class="point-page">
+        <header>
+            <div class="header-content" id="header">
+                <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>
+            </div>
+        </header>
+        <?php
+        echo"
+        <form action='add_points_config.php?id=$game_id' method='post'>
+            <div class='point-input'>
+                <h1>Team 1</h1>
+                <h1>Team 2</h1>
+                <div class='point-input-1'>
+                    <label for=''>$team1_name</label>
+                    <input type='text' placeholder='$team1_points' name='team1_points' id='team1_points'>
+                </div>
+                
+                <div class='point-input-2'>
+                    <label for=''>$team2_name</label>
+                    <input type='text' placeholder='$team2_points' name='team2_points' id='team2_points'>
+                </div>
+            </div>
+            <input type='submit' value='Voeg punten toe'>
+        </form>
+        ";
+        ?>
+    </div>
 </div>
 
 

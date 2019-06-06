@@ -25,7 +25,7 @@
     font-style: normal;
 }
 
-p, h1, h2, h3, input, a, th, table{
+p, h1, h2, h3, input, a, th, table, label{
     font-family: Main;
 }
 /*
@@ -305,10 +305,17 @@ header a{
 }
 .team-title{
     margin: 0;
+    size: 2em;
+}
+.team-content{
+    text-align: center;
+}
+.player-button{
+    margin: 0 5px;  
 }
 
 .dropbtn {
-    background-color: #4CAF50;
+    background-color: #8699ba;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -340,7 +347,7 @@ header a{
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {background-color: #8699ba;}
 
 
 /* ================================Informatie================================== */
@@ -361,7 +368,17 @@ header a{
 }
 
 
+/* ======================Points====================== */
 
+.point-page{
+    height: 100vh;
+    text-align: center;
+}
+
+.point-input{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
 
 
 /* ==========================================================================

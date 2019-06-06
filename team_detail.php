@@ -40,11 +40,9 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
                 <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>
             </div>
         </header>
-
-
-            
+        <div class="team-content">      
             <?php
-            echo "<h2 class='team-title'>$team_name</h2>";
+            echo "<h1 class='team-title'>$team_name</h1>";
             echo " <p>Aangemaakt door: $made_by</p>";
             ?>
                 <div class="players">
@@ -55,7 +53,7 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($players as $player){
                             $player_name =  htmlentities($player['player_name']);
                             $player_id = htmlentities($player['id']);
-                            echo"<button onclick='remove_player($player_id)'>{$player_name}</button>";
+                            echo"<button onclick='remove_player($player_id)' class='player-button'>{$player_name}</button>";
                         }
                     }else if (isset($_SESSION['username']) && $_SESSION['username'] == $admin){
 
@@ -63,13 +61,13 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($players as $player){
                             $player_name =  htmlentities($player['player_name']);
                             $player_id = htmlentities($player['id']);
-                            echo"<button onclick='remove_player($player_id)'>{$player_name}</button>";
+                            echo"<button onclick='remove_player($player_id)'class='player-button'>{$player_name}</button>";
                         }
                     }else{
                         foreach ($players as $player){
                             $player_name = htmlentities($player['player_name']);
                             $player_id = htmlentities($player['id']);
-                            echo "<button class='noRightsBtn'>$player_name</button>";
+                            echo "<button class='noRightsBtn' class='player-button'>$player_name</button>";
                         }
                     }
 
@@ -140,7 +138,8 @@ $users = $query->fetchAll(PDO::FETCH_ASSOC);
                     }
                 }
 
-                ?>
+         ?>
+         </div> 
     </div>
 </div>
 
