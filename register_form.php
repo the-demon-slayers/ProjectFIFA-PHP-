@@ -16,7 +16,7 @@ require 'header.php';
                 <a href="index.php" class="vertical-align"><img src="img/logo.png" alt="FIFA" class="logo"></a>
             </div>
         </header>
-        <h1>Maak een aacount aan</h1>
+        <h1>Maak een acount aan</h1>
         <form action="register.php" method="post" class="register-form">
             <div class="register-input">
                 <input type="text" name="username" id="username" placeholder="Gebruikersnaam" required class="input-field">
