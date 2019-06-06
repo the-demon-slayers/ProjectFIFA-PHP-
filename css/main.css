@@ -385,13 +385,25 @@ header a{
    Register Page
    ========================================================================== */
 
-
-
-
-
-
-
-
+   .register-page{
+        height: 100vh;;
+        text-align: center;
+   }
+   .register-page p{
+       margin: 0;
+   }
+   
+   .register-input{
+        margin: 0;
+        display: grid;
+        grid-template-columns: 100%;
+   }
+   .input-field{
+       margin: 5px 35%;
+       padding: 3px 20px;
+       border-style: solid;
+       border-radius: 5px;
+   }
 
 
 /* ==========================================================================
