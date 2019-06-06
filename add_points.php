@@ -36,12 +36,12 @@ require 'header.php';
                 <h1>Team 2</h1>
                 <div class='point-input-1'>
                     <label for=''>$team1_name</label>
-                    <input type='text' placeholder='$team1_points' name='team1_points' id='team1_points'>
+                    <input type='number' placeholder='$team1_points' name='team1_points' id='team1_points'>
                 </div>
                 
                 <div class='point-input-2'>
                     <label for=''>$team2_name</label>
-                    <input type='text' placeholder='$team2_points' name='team2_points' id='team2_points'>
+                    <input type='number' placeholder='$team2_points' name='team2_points' id='team2_points'>
                 </div>
             </div>
             <input type='submit' value='Voeg punten toe'>
