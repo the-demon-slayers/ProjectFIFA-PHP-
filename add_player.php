@@ -32,17 +32,27 @@ $prepare2->execute([
 $players = $prepare2->fetch(PDO::FETCH_ASSOC);
 $player_name = $players['username'];
 
-$sql = "INSERT INTO players (player_name, team_name) VALUES (:name, :team_name)";
-$prepare = $db->prepare($sql);
-$prepare->execute([
-    ':name' => $player_name,
-    ':team_name' => $team_name
+$sql_team_player = "SELECT * FROM players WHERE player_name = :player_name";
+$prepare3 = $db->prepare($sql_team_player);
+$prepare3->execute([
+    ':player_name' => $player_name
 ]);
 
+$player_name2 = $prepare3->fetch(PDO::FETCH_ASSOC);
+$result = $player_name2['player_name'];
 
+if (!$result) {
 
+    $sql = "INSERT INTO players (player_name, team_name) VALUES (:name, :team_name)";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':name' => $player_name,
+        ':team_name' => $team_name
+    ]);
 
-
-header("Location: team_detail.php?id=$team_id");
+    header("Location: team_detail.php?id=$team_id");
+}else{
+    header("Location: team_detail.php?id=$team_id");
+}
 
 ?>
