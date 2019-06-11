@@ -7,6 +7,9 @@ $query = $db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 $admin = 'ikbenrobin5';
 require 'header.php';
+
+
+
 ?>
 
 <div class="background">
@@ -49,7 +52,7 @@ require 'header.php';
                 ";
                 }
                 ?>
-                
+                <li><a href="downloads/GokApp1_0.zip" class="menu-item">Download Gok App</a></li>
             </ul>
         </div>
      </div>
