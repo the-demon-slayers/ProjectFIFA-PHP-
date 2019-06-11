@@ -10,7 +10,7 @@
 $dbHost = 'localhost';
 $dbUser = 'u614143906_renzo';
 $dbPassword = 'w@0$FitrYAy0Lm';
-$dbName = 'u614143906_f9';
+$dbName = 'f9';
 
 $dsn= "mysql:host=$dbHost;dbname=$dbName";
 $db = new PDO($dsn, $dbUser, $dbPassword);
